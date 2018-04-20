@@ -1,0 +1,251 @@
+<meta charset="utf-8">
+
+<div class="form-group row">
+
+    <div class="col-md-3">
+        <label for="data" class="col-2 col-form-label">A partir De</label>
+		<input class="form-control" type="date" id="datade">
+    </div>
+    
+    <div class="col-md-3">
+        <label for="data" class="col-2 col-form-label">Até</label>
+		<input class="form-control" type="date" id="dataate">
+    </div>
+    
+    <div class="col-xs-3 col-md-1 custom-class-botADDSearch" style="padding-left: 1px;">
+        <div class="row">
+        	<div class="col-xs-3 col-md-1">
+	            <button type="button" class="btn btn-primary" onclick="ONG.fluxoCaixa.pesquisar()">                    
+	                <span class="glyphicon glyphicon-search" aria-hidden="true"></span> Pesquisar
+	            </button>
+	        </div>
+        </div>
+    </div>
+    
+    <div class="col-xs-3 col-md-1 custom-class-botADDSearch">
+    	<div class="row">
+    		<div class="col-xs-3 col-md-1">
+	            <button type="button" class="btn btn-primary btn-success" data-toggle="modal" data-target="#modaladd" onclick="ONG.fluxoCaixa.modaladd()">
+	                <span class="glyphicon glyphicon-ok-circle" aria-hidden="true"></span> Cadastrar
+	            </button>
+			</div>
+		</div>
+    </div>
+</div>  
+
+<!-- GRID -->
+<div class="table-responsive">
+	<div class="table-responsive">    	
+		<div class="form-group row"> 
+		    <div class="col-12 col-md-12 pull-md-12 bd-content">
+		        <div id="resuAllEvents" class="divResultado"></div>
+		    </div>
+		</div>
+	</div>
+</div>
+<!-- end modal -->
+
+<!-- Chamada da minha funcao da grid-->
+<!-- Modal add -->
+<div class="modal fade" id="modaladd" tabindex="-1" role="dialog" aria-labelledby="modaladd" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+
+                <h5 class="modal-title" id="exampleModalLabel">Cadastro de Fluxo de caixa</h5>
+
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="col">
+                    <div class="form-group row">
+                        <div class="col-xs-6 col-md-6">
+                            <label class="col-2 col-form-label" for="tipofluxoadd">Tipo:</label>
+                            
+                            <select class="form-control" id="tipofluxoadd">		
+								<option value="0">Entrada</option>
+								<option value="1">Saída</option>
+								<option value="2">Transferência</option>							
+						    </select>         
+                        </div>
+                        <div class="col-xs-6 col-md-6">
+                            <label class="col-2 col-form-label" for="centrocusto2">Centro De Custo:</label>
+                            
+                            <select class="form-control" name="centrocusto" id="centrocusto2">                         
+                            </select>     
+                        </div>  
+                    </div>
+
+                    <div class="form-group row">                    	
+                    
+                        <div class="col-xs-6 col-md-6">
+                            <label for="data" class="col-2 col-form-label">Data</label>
+    						<input class="form-control" type="date" id="data">
+                        </div>
+                        <div class="col-xs-6 col-md-6">
+                            <label class="col-2 col-form-label" for="classificacao">Classificação:</label>
+						   
+						   <select class="form-control" id="classificacao">		
+								<option value="0">Compra</option>
+								<option value="1">Venda</option>
+								<option value="2">Doação </option>
+								<option value="3">Custo operacional</option>								
+								<option value="4">Patrocínio</option>								
+						    </select>   
+                        </div>  
+                    </div>
+
+                     <div class="form-group row">
+                        <div class="col-xs-6 col-md-6">
+                            <label class="col-2 col-form-label" for="evento">Evento:</label>
+                            
+                            <select class="form-control" name="evento" id="evento">   
+                            	<option value="">Não possuí</option>                                                     
+                            </select>   
+                        </div>          
+                        <div class="col-xs-6 col-md-6">
+                            <label class="col-2 col-form-label" for="pessoa">Pessoa:</label>
+                            
+                            <select class="form-control" name="pessoa" id="pessoa">
+                            	<option value="">Não possuí</option>                                                                                 
+                            </select>  
+                        </div>            
+                    </div>
+
+                     <div class="form-group row">
+                        <div class="col-xs-6 col-md-6 ">
+                            <label for="valor" class="col-2 col-form-label">Valor:</label>
+                            <input class="form-control" type="text" id="valor" placeholder="(ex: 1000.00)">
+                        </div>
+                        <div class="col-xs-6 col-md-6">
+                            <label class="col-2 col-form-label" for="centrodecusto3">Destino - Centro De Custo:</label>
+                            
+                            <select class="form-control" name="centrodecusto3" id="centrodecusto3" disabled="disabled"> 
+                            	<option value=""></option>                                                                                                                                        
+                            </select>     
+                        </div>                   	
+                    </div>   
+                    <div class="form-group row">
+                    	<div class="col-xs-6 col-md-6 ">
+                    	     <label class="col-2 col-form-label" for="descricao">Descrição:</label>
+                    	
+                    		<textarea class="form-control" rows="3" id="descricao"></textarea>
+
+                    	</div>
+                    </div>                 
+                </div>
+            </div>
+            <div class="modal-footer">
+                
+	             <button type="button" class="btn" data-dismiss="modal">Sair</button>          
+	         
+	             <button type="button" class="btn btn-primary btn-success" onclick="ONG.fluxoCaixa.addFluxo()">
+	
+	                 <span class="glyphicon glyphicon-ok-circle" aria-hidden="true"></span> Salvar
+	             </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- stats edit modal -->
+<div id="modaledit" class="modal fade" tabindex="-1" role="dialog"  aria-labelledby="gridModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+			<div class="modal-header">
+        		<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+      		</div>
+            <div class="modal-body">
+            
+             <input name="id" id="id" type="hidden">
+            	<div class="col">
+                    <div class="form-group row">
+                        <div class="col-xs-6 col-md-6">
+                            <label class="col-2 col-form-label" for="tipofluxoedit">Tipo:</label>
+                            
+                            <select class="form-control" id="tipofluxoedit">		
+								<option value="0">Entrada</option>
+								<option value="1">Saída</option>
+								<option value="2">Transferência</option>
+						    </select>         
+                        </div>
+                        <div class="col-xs-6 col-md-6">
+                            <label class="col-2 col-form-label" for="centrocustoedit1">Centro De Custo:</label>
+                            
+                            <select class="form-control" id="centrocustoedit1">                         
+                            </select>     
+                        </div>  
+                    </div>
+
+                    <div class="form-group row">                    	
+                    
+                        <div class="col-xs-6 col-md-6">
+                            <label for="data" class="col-2 col-form-label">Data</label>
+    						<input class="form-control" type="date" id="dataedit">
+                        </div>
+                        <div class="col-xs-6 col-md-6">
+                            <label class="col-2 col-form-label" for="classificacaoedit">Classificação:</label>
+						   
+						   <select class="form-control" id="classificacaoedit">		
+								<option value="0">Compra</option>
+								<option value="1">Venda</option>
+								<option value="2">Doação </option>
+								<option value="3">Custo operacional</option>
+								<option value="4">Patrocínio</option>															
+						    </select>   
+                        </div>  
+                    </div>
+
+                     <div class="form-group row">
+                        <div class="col-xs-6 col-md-6">
+                            <label class="col-2 col-form-label" for="eventoedit">Evento:</label>
+                            
+                            <select class="form-control" id="eventoedit">   
+                            	<option value="">Não possuí</option>                                                     
+                            </select>   
+                        </div>          
+                        <div class="col-xs-6 col-md-6">
+                            <label class="col-2 col-form-label" for="pessoaedit">Pessoa:</label>
+                            
+                            <select class="form-control" name="pessoaedit" id="pessoaedit">
+                            	<option value="">Não possuí</option>                                                                                 
+                            </select>  
+                        </div>            
+                    </div>
+
+                     <div class="form-group row">
+                        <div class="col-xs-6 col-md-6 ">
+                            <label for="valoredit" class="col-2 col-form-label">Valor:</label>
+                            <input class="form-control" type="text" id="valoredit" placeholder="(ex: 1000.00)">
+                        </div>
+                        <div class="col-xs-6 col-md-6">
+                            <label class="col-2 col-form-label" for="centrodecustoedit2">Destino - Centro De Custo:</label>
+                            
+                            <select class="form-control" name="centrodecustoedit2" id="centrodecustoedit2" disabled="disabled"> 
+                            	<option value=""></option>                                                                                                                                        
+                            </select>     
+                        </div>                   	
+                    </div>   
+                    <div class="form-group row">
+                    	<div class="col-xs-6 col-md-6 ">
+                            <label class="col-2 col-form-label" for="descricaoedit">Descrição:</label>                    	
+                    		<textarea class="form-control" rows="3" id="descricaoedit"></textarea>
+
+                    	</div>
+                    </div>                 
+                </div>
+            </div>
+            <div class="modal-footer">
+                
+	             <button type="button" class="btn" data-dismiss="modal">Sair</button>          
+	         
+	             <button type="button" class="btn btn-primary btn-success" onclick="ONG.fluxoCaixa.editarFluxo()">
+	
+	                 <span class="glyphicon glyphicon-ok-circle" aria-hidden="true"></span> Salvar
+	             </button>
+            </div>
+        </div>
+    </div>
+</div>

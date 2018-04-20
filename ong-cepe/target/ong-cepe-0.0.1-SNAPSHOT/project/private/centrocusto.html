@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="CEPE" content="">
+    
+    <title>Gerenciamento de Centro de custo ONG Cepe</title>
+	
+	<link href="../../lib/style.css" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,600,700" rel="stylesheet">
+	<link href="../../lib/node_modules/bootstrap/dist/css/bootstrap.css" rel="stylesheet" type="text/css">    
+	<link href="../../lib/node_modules/bootstrap/dist/css/bootstrap-theme.css" rel="stylesheet" type="text/css">
+	<link href="../../lib/tablesorter/style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+
+	<section id="header" class="custom-padding-header"></section>
+	
+	<section class="padding-vertical-small custom-class">
+		<div class="container">
+		    <div class="row">
+		        <div class="col-xs-12 custom-fontes">
+		        	<div class="form-group row">
+						<div class="col-6.col-md-4">
+		
+							<h1>Gerenciamento de Centro de Custo:</h1>
+						</div>
+		        	</div>			
+				</div>	
+			</div>
+			<div class="row ">
+				<div class="col-xs-12">
+					<div class="section form-group">
+						<div class="form-group row">
+							<div class="col-md-8">
+						        <label for="valorPesquisa" class="col-2 col-form-label">Buscar:</label>
+						
+						        <input class="form-control" type="text" id="valorPesquisa" placeholder="Nome">
+						    </div>
+						     <div class="col-xs-3 col-md-1 custom-class-botADDSearch" style=" padding-left: 1px;">
+						        <div class="row">
+						        	<div class="col-xs-3 col-md-1">
+							            <button type="button" class="btn btn-primary" onclick="return ONG.centrocusto.pesquisar()">
+							                <span class="glyphicon glyphicon-search" aria-hidden="true"></span> Pesquisar
+							            </button>
+							        </div>
+						        </div>
+						    </div>
+						   <div class="col-xs-3 col-md-1 custom-class-botADDSearch">
+						        <div class="row">
+						        	<div class="col-xs-3 col-md-1">
+							            <button type="button" class="btn btn-primary btn-success" data-toggle="modal" data-target="#modaladd">
+							                <span class="glyphicon glyphicon-ok-circle" aria-hidden="true"></span> Cadastrar
+							            </button>
+							        </div>
+						        </div>
+						    </div>
+						</div>
+						<div class="table-responsive">
+							<div class="table-responsive">    	
+								<div class="form-group row"> 
+								    <div class="col-12 col-md-12 pull-md-12 bd-content">
+								        <div id = "exibiList" class = "exibiList"></div>
+								    </div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	
+	<section id="footer" class="custom-footer"></section>
+	
+	<div class="modal fade" id="modaladd" tabindex="2" role="dialog" aria-labelledby="modaladd" aria-hidden="true">
+	    <div class="modal-dialog" role="document">
+	        <div class="modal-content">
+	            <div class="modal-header">
+	<!--                 <h3 class="modal-title" id="exampleModalLabel">Editar Usuário:</h3> -->
+	                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+	                    <span aria-hidden="true">&times;</span>
+	                </button>
+	            </div>
+	            <div class="modal-body">
+	                <div class="col">
+		                
+		             	
+		              <div class="form-group row">
+		
+		                <div class="col-xs-6 col-md-5">
+		                    <label for="example-text-input" class="col-2 col-form-label">Nome:</label>
+		                   <div class="col-10">
+		                        <input class="form-control" type="text" id="nome" placeholder="Nome">
+		                    </div>
+		                </div>
+		
+		                <div class="col-xs-6 col-md-5 coll-md-offset-2">
+		                    <label for="email" class="col-2 col-form-label">Descrição:</label>
+		                    <div class="col-10">
+		                        <input class="form-control" type="text" id="descricao" placeholder="Descrição">
+		                 	</div>
+		                </div>
+		                 
+		              </div>	
+		        	</div>
+	            </div>
+	            <div class="modal-footer">
+	                <button type="button" class="btn" data-dismiss="modal">Sair</button>
+	                <button type="button" class="btn btn-primary btn-success" onclick="ONG.centrocusto.cadastrar()">
+	                    <span class="glyphicon glyphicon-ok-circle" aria-hidden="true"></span> Salvar
+	                </button>                
+	            </div>
+	        </div>
+	    </div>
+	</div>
+	
+	<div class="modal fade" id="modaledit" tabindex="2" role="dialog" aria-labelledby="modaledit" aria-hidden="true">
+	    <div class="modal-dialog" role="document">
+	        <div class="modal-content">
+	            <div class="modal-header">
+					<!-- <h3 class="modal-title" id="exampleModalLabel">Editar Usuário:</h3> -->
+	                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+	                    <span aria-hidden="true">&times;</span>
+	                </button>
+	            </div>
+	            <div class="modal-body">
+	                <div class="col">
+		                
+		              <input type="hidden" id="idEdit" >
+		             	
+		              <div class="form-group row">
+		
+		                <div class="col-xs-6 col-md-5">
+		                    <label for="example-text-input" class="col-2 col-form-label">Nome:</label>
+		                   <div class="col-10">
+		                        <input class="form-control" type="text" id="nomeEdit" placeholder="Nome">
+		                    </div>
+		                </div>
+		
+		                <div class="col-xs-6 col-md-5 coll-md-offset-2">
+		                    <label for="email" class="col-2 col-form-label">Descrição:</label>
+		                    <div class="col-10">
+		                        <input class="form-control" type="text" id="descricaoEdit" placeholder="Descrição">
+		                 	</div>
+		                </div>
+		                 
+		              </div>	
+		        	</div>
+	            </div>
+	            <div class="modal-footer">
+	                <button type="button" class="btn" data-dismiss="modal">Sair</button>
+	                <button type="button" class="btn btn-primary btn-success" onclick="ONG.centrocusto.editar()">
+	                    <span class="glyphicon glyphicon-ok-circle" aria-hidden="true"></span> Salvar
+	                </button>                
+	            </div>
+	        </div>
+	    </div>
+	</div>
+</body>
+
+    <script src="../../lib/node_modules/jquery/dist/jquery.js"></script>
+    <script src="../../lib/node_modules/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="../../lib/tablesorter/jquery.tablesorter.min.js"></script>
+	<script src="js/bootbox.min.js"></script>
+    
+	<script src="js/ajax.js"></script>
+    <script src="formulario/centrocusto/centrocustoRest.js"></script>
+    <script src="formulario/centrocusto/centrocusto.js"></script>
+	
+</html>

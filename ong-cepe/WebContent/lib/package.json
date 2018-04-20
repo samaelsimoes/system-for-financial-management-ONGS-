@@ -1,0 +1,7 @@
+{
+  "dependencies": {
+    "bootstrap": "3.3.6",
+    "jquery": "2.2.4",
+    "pdfmake": "^0.1.33"
+  }
+}

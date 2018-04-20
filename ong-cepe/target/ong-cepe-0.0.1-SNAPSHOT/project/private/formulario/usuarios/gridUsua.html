@@ -1,0 +1,206 @@
+<meta charset="utf-8">
+<div class="form-group row">
+    <div class="col-md-8">
+        <label for="valorPesquisa" class="col-2 col-form-label">Buscar:</label>
+
+        <input class="form-control" type="text" id="valorPesquisa" placeholder="Nome">
+    </div>
+     <div class="col-xs-3 col-md-1 custom-class-botADDSearch" style=" padding-left: 1px;">
+        <div class="row">
+        	<div class="col-xs-3 col-md-1">
+	            <button type="button" class="btn btn-primary" onclick="ONG.usuario.pesquisar()">
+	                    
+	                <span class="glyphicon glyphicon-search" aria-hidden="true"></span> Pesquisar
+	            </button>
+	        </div>
+        </div>
+    </div>
+   <div class="col-xs-3 col-md-1 custom-class-botADDSearch">
+        <div class="row">
+        	<div class="col-xs-3 col-md-1">
+	            <button type="button" class="btn btn-primary btn-success" data-toggle="modal" data-target="#modaladd">
+	                <span class="glyphicon glyphicon-ok-circle" aria-hidden="true"></span> Cadastrar
+	            </button>
+	        </div>
+        </div>
+    </div>
+</div>  
+
+<div class="table-responsive">
+	<div class="table-responsive">    	
+		<div class="form-group row"> 
+		    <div class="col-12 col-md-12 pull-md-12 bd-content">
+		        <div id = "exibiList" class = "exibiList"></div>
+		    </div>
+		</div>
+	</div>
+</div>
+
+<!-- Grids -->
+<div class="modal fade" id="modaledit" tabindex="2" role="dialog" aria-labelledby="modaledit" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+<!--             	<h3 class="modal-title" id="exampleModalLabel">Editar Usuário:</h3>  -->
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="col">
+	                
+	             <input type="hidden" id="idEdit" >
+	                
+	             <div class="form-group row">
+	                <div class="col-xs-6 col-md-6">
+	                    <label for="example-text-input" class="col-2 col-form-label">Nome Completo:</label>
+	                   <div class="col-10">
+	                        <input class="form-control" type="text" id="nomeEdit" placeholder="Nome">
+	                    </div>
+	                </div>
+	
+	                <div class="col-xs-6 col-md-6 coll-md-offset-2">
+	                    <label for="email" class="col-2 col-form-label">Email:</label>
+	                    <div class="col-10">
+	                        <input class="form-control" type="text" id="emailEdit" placeholder="Email">
+	                 	</div>
+	                </div>
+	             </div>
+	            
+	             <div class="form-group row">
+	                <div class="col-xs-6 col-md-6 coll-md-offset-2">
+	                    <label for="email" class="col-2 col-form-label">Login:</label>
+	                    <div class="col-10">
+	                        <input class="form-control" type="text" id="loginEdit" placeholder="Login" readonly="readonly">
+	                 	</div>
+	                </div>                              
+	
+	
+	                <div class="col-xs-6 col-md-6">
+	                    <label class="col-2 col-form-label" for="estado">Tipo:</label>
+	                    
+	                    <select class="form-control" id="tipoEdit">
+	                    
+	                        <option value="">Selecione</option>
+	                        <option value="1">Administrador</option>
+	                        <option value="3">Financeiro</option>
+	                        <option value="2">Professor</option>
+	                    </select>       
+	                </div>
+	            </div>
+	            
+	             <div class="form-group row">            
+	                <div class="col-xs-6 col-md-6 coll-md-offset-2">
+	                    <label for="email" class="col-2 col-form-label">Senha:</label>
+	                    <div class="col-10">
+	                        <input class="form-control" type="password" id="senhaEdit" placeholder="Senha">
+	                 	</div>
+	                </div>  
+	                <div class="col-xs-6 col-md-6 coll-md-offset-2">
+	                    <label for="email" class="col-2 col-form-label">Confirmar Senha:</label>
+	                    <div class="col-10">
+	                        <input class="form-control" type="password" id="senhaConfEdit" placeholder="Confirmar Senha">
+	                 	</div>
+	                </div>  
+	            </div>
+	                
+	                
+	        	</div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn" data-dismiss="modal">Sair</button>
+                <button type="button" class="btn btn-primary btn-success" onclick="ONG.usuario.editar()">
+                    <span class="glyphicon glyphicon-ok-circle" aria-hidden="true"></span> Salvar
+                </button>                
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="modaladd" tabindex="-1" role="dialog" aria-labelledby="modaladd" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+            	
+            	<h3 class="modal-title" id="exampleModalLabel">Cadastrar Usuário:</h3> 
+                
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="col">
+	                
+	             <input type="hidden" id="idEdit" >
+	            <div class="form-group row">
+	                
+		            <div class="col-xs-6 col-md-6">
+	                    <label for="example-text-input" class="col-2 col-form-label">Nome Completo:</label>
+	                   <div class="col-10">
+	                        <input class="form-control" type="text" id="nome" placeholder="Nome">
+	                    </div>
+	                </div>
+	
+	                <div class="col-xs-6 col-md-6">
+	                    <label for="email" class="col-2 col-form-label">Email:</label>
+	                    <div class="col-10">
+	                        <input class="form-control" type="text" id="email" placeholder="Email">
+	                 	</div>
+	                </div>
+	            </div>
+	             <div class="form-group row">
+	                <div class="col-xs-6 col-md-6">
+	                    <label for="email" class="col-2 col-form-label">Login:</label>
+	                    <div class="col-10">
+	                        <input class="form-control" type="text" id="login" placeholder="Login">
+	                 	</div>
+	                </div>                              
+	
+	                <div class="col-xs-6 col-md-6">
+	                    <label class="col-2 col-form-label" for="estado">Tipo:</label>
+	                    
+	                    <select class="form-control" id="tipo">
+	                    
+	                        <option value="">Selecione</option>
+	                        <option value="1">Administrador</option>
+	                        <option value="3">Financeiro</option>
+	                        <option value="2">Professor</option>
+	                    </select>       
+	                </div>
+	            </div>
+	            
+	             <div class="form-group row">            
+	                <div class="col-xs-6 col-md-6">
+	                    <label for="email" class="col-2 col-form-label">Senha:</label>
+	                    <div class="col-10">
+	                        <input class="form-control" type="password" id="senha" placeholder="Senha">
+	                 	</div>
+	                </div>  
+	                <div class="col-xs-6 col-md-6">
+	                    <label for="email" class="col-2 col-form-label">Confirmar Senha:</label>
+	                    <div class="col-10">
+	                        <input class="form-control" type="password" id="senhaConf" placeholder="Confirmar Senha">
+	                 	</div>
+	                </div>  
+	            </div>	                	                
+            </div>
+            
+            <div class="modal-footer">
+                <button type="button" class="btn" data-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-success" onclick="ONG.usuario.cadastrar()">
+                    <span class="glyphicon glyphicon-ok-circle" aria-hidden="true"></span> Salvar
+                </button>                
+            </div>
+  
+        </div>
+    </div>
+</div>
+
+<script src="formulario/usuarios/usuariosRest.js"></script>
+<script src="formulario/usuarios/usuarios.js"></script>
+<script type = "text/javascript"> 
+    window.onload = function(){        
+    	ONG.usuario.pesquisar();
+    }
+
+</script>

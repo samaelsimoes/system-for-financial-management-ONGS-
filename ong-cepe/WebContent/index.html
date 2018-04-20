@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    
+	<title>Centro esportivo para pessoas especiais - Joinville</title>
+	
+	<link href="lib/style.css" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,600,700" rel="stylesheet">    
+	<link href="lib/node_modules/bootstrap/dist/css/bootstrap-theme.css" rel="stylesheet" type="text/css">
+	<link href="lib/node_modules/bootstrap/dist/css/bootstrap.css" rel="stylesheet" type="text/css">
+</head>
+	<body class="custom-login-banner" style="overflow-y: hidden;overflow-x: hidden;">
+	<section class="section canvas custom-efect-login" id="particles-js">
+	    <div class="row custom-login" >
+	        <div class="container col-xs-12 col-sm-offset-2 col-sm-8 col-md-offset-3 col-md-6 col-lg-offset-4 col-lg-4 padding-vertical-xlarge custom-login-border" style=" z-index: 1250;">
+	            <br />
+	            <div class="panel panel-default">
+	                <div class="panel-heading">
+	                   <div class="row custom-logo-login">
+	                   		<div class="col-xs-12 col-md-4 custom-logo-login2 phone-align-center">
+	                   			<div class="row">
+	                   				<img class="" src="project/assets/logo-0-2.svg">
+	                   			</div>
+	                   		</div>
+	                   		<div class="col col-md-4">
+	                   		</div>
+	                   		<div class="col-xs-12 col-md-4 custom-logo-login1 phone-align-center">
+	                   			<div class="row custom-padding-login-logo">	
+	                   				<img class=""  src="project/assets/logo-01.svg">
+	                   			</div>
+	                   		</div>	                   		
+	                   </div>
+	                </div>
+	                <div class="panel-body">
+	                	<form class="form-horizontal" id="formularioLogin">
+							<input type = "hidden" name="acao" value="login"></input>
+							
+	                        <div class="form-group" style="margin-right: 15px!important;  margin-left: 15px!important;">
+	                        	<div class="row">
+		                            <div class="input-group">
+		                                <span class="input-group-addon">
+		                                    <i class="glyphicon glyphicon-user" style="width: auto"></i>
+		                                </span>
+		                                <input id="login" runat="server" type="text" class="form-control" name="login" placeholder="Login" autofocus/>
+		                            </div>
+	                        	</div><br>
+	                        	<div class="row">	                       
+		                            <div class="input-group">
+		                                <span class="input-group-addon">
+		                                    <i class="glyphicon glyphicon-lock" style="width: auto"></i>
+		                                </span>
+		                                 <input type="hidden" id="passwordhidden" name="passwordhidden">
+		                                <input id="senha" runat="server" type="password" class="form-control" name="senha" placeholder="Senha"/>
+		                            </div>
+		                         </div>
+	                        </div>
+	                    </form>	              
+	                    <div class="modal-footer">          			            
+			                <button type="button" class="btn btn-lg btn-success btn-block" tyle="width: 100%" onclick="ONG.login.entrada()">			
+			                    <span class="glyphicon glyphicon-ok-circle" aria-hidden="true"></span> Entrar
+			                </button>
+			            </div>
+	                </div>
+	            </div>
+	        </div>
+	    </div>
+		
+	</section>
+</body>
+
+  	<!-- JQUERY -->
+    <script src="lib/node_modules/jquery/dist/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="lib/node_modules/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="project/resource/js/bootbox.min.js"></script>    
+    <script src="project/resource/js/ajax.js"></script>
+    
+    <script src="project/resource/js/login.js"></script>
+    
+    <script src="project/resource/js/particles.js"></script>
+    <script src="project/resource/js/app.js"></script>
+</html>

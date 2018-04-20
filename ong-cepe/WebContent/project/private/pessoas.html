@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="CEPE" content="">
+   	
+   	<title>Gerenciamento de Pessoas ONG Cepe</title>
+    	
+	<link href="../../lib/style.css" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,600,700" rel="stylesheet">    
+	<link rel="stylesheet" type="text/css" href="../../lib/node_modules/bootstrap/dist/css/bootstrap-theme.css">
+	<link rel="stylesheet" type="text/css" href="../../lib/node_modules/bootstrap/dist/css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="../../lib/tablesorter/style.css">
+	
+</head>
+<body>
+
+	<section id="header" class="custom-padding-header"></section>
+	
+	<section class="padding-vertical-small custom-class">
+		<div class="container">
+		    <div class="row">
+		        <div class="col-xs-12 custom-fontes">
+		        	<div class="form-group row">
+						<div class="col-xs-6 col-md-6">
+		
+							<h1>Gerenciamento de Pessoas:</h1>
+						</div>
+		        	</div>
+					<div class="form-group row ">
+						<div class="col-xs-6 col-md-7">
+						
+						   <label class="col-2 col-form-label" for="tipopessoa">Tipo pessoa:</label>
+						   
+						   <select class="form-control" id="tipopessoa">		
+								<option value="0">Pessoa Física</option>
+								<option value="1">Pessoa Jurídica</option>
+								<option selected value="3"> Pessoa Física e Jurídica </option>
+						    </select>                   
+						</div>  
+					</div>				
+				</div>
+			</div>
+			<div class="row ">
+				<div class="col-xs-12">
+					<!-- CHAMADA DO MEU RELATÓRIO PESSOA FISICA -->
+					<div class="section form-group" id="pesstipo"></div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section id="footer" class="custom-footer"></section>
+</body>
+
+    <script src="../../lib/node_modules/jquery/dist/jquery.js"></script>
+    <script src="../../lib/node_modules/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="../../lib/tablesorter/jquery.tablesorter.min.js"></script>
+    
+	<script src="js/ajax.js"></script>
+    <script src="js/pessoas/chamadas.js"></script>
+	<script src="js/bootbox.min.js"></script>
+<!-- 	<script src="formulario/pessoas/gridbusca/gridbusca.js"></script> -->
+
+
+<!-- 	<script type = "text/javascript">  -->
+<!-- 	    window.onload = function(){         -->
+<!-- 	    	ONG.pessoa.gridbusca(); -->
+<!-- 	    } -->
+<!-- 	</script> -->
+</html>

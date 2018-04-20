@@ -1,0 +1,7 @@
+*.log
+RemoteSystemsTempFiles
+.recommenders
+.metadata
+Servers
+node_modules/
+node_modules

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="CEPE" content="">
+   	
+   	<title>Fluxo de caixa ONG Cepe</title>
+    	
+	<link href="../../lib/style.css" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,600,700" rel="stylesheet">    
+	<link href="../../lib/node_modules/bootstrap/dist/css/bootstrap-theme.css"  rel="stylesheet" type="text/css" >
+	<link href="../../lib/node_modules/bootstrap/dist/css/bootstrap.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+	<section id="header" class="custom-padding-header"></section>
+	
+	<section class="padding-vertical-small custom-class">
+		<div class="container">
+			<div class="form-group row">
+				<div class="col-xs-6 col-md-6">
+
+					<h1> Gerenciamento - Fluxo de Caixa:</h1>
+				</div>
+        	</div>
+			<div class="form-group row ">
+				<div class="col-xs-6 col-md-6">
+				
+				   <label class="col-2 col-form-label" for="tipoCC">Centro de Custo:</label>
+				   
+				   <select class="form-control" id="tipoCC">		
+						<option value="">Selecione</option>	
+				    </select>                   
+				</div>  
+			</div>		
+			<div class="form-group row ">
+				<div class="col-md-3">
+			        <label for="data" class="col-2 col-form-label">A partir De</label>
+					<input class="form-control" type="date" id="datade">
+			    </div>
+			    
+			    <div class="col-md-3" id="editor">
+			        <label for="data" class="col-2 col-form-label">Até</label>
+					<input class="form-control" type="date" id="dataate">
+			    </div>
+			    <div class="col-xs-2 custom-class-botADDSearch" style="padding-left: 1px;">
+			    	<div class="row">
+				        <div class="col col-md-2">
+				            <button  type="button" class="btn btn-primary" onclick="ONG.relFlox.pesquisar()">                    
+				                <span class="glyphicon glyphicon-search" aria-hidden="true"></span> Pesquisar
+				            </button>			        
+				    	</div>
+				    </div>
+				</div>
+				<div class="col-xs-2 custom-class-botADDSearch" style="padding-left: 1px;">
+					<div class="row">
+				        <div class="col col-md-2">
+				            <button  type="button" class="btn btn-info" onclick="ONG.relFlox.generattorPDF()">                    
+				                <span class="glyphicon glyphicon-file" aria-hidden="true"></span> Gerador PDF
+				            </button >	
+				         </div>
+				     </div>		        
+				</div>
+			</div>
+			<div class="row" class="container">
+				<div class="col-xs-12 custom-fontes panel panel-default">
+				    <div class="row form-group" >
+						<div class="table-responsive">
+							<div class="form-group row table-responsive"> 
+							    <div class="col-12 col-md-12 pull-md-12 bd-content" id="content">
+							        <div id = "rextratocentrocusto" class = "divResultado"></div>
+							    </div>
+							</div>
+						</div>
+					</div>					
+				</div>
+			</div>
+		</div>
+	</section>
+	<section id="footer" class="custom-footer"></section>
+</body>
+
+<script src="../../lib/node_modules/jquery/dist/jquery.js"></script>
+<script src="../../lib/node_modules/pdfmake/build/pdfmake.min.js"></script>
+<script src="../../lib/node_modules/pdfmake/build/vfs_fonts.js"></script>
+
+
+<script src="../../lib/node_modules/bootstrap/dist/js/bootstrap.js"></script>
+
+<script src="js/fluxo-caixa/chamadas.js"></script>
+<script src="js/bootbox.min.js"></script>
+<script src="js/ajax.js"></script>
+<script src="formulario/centrocusto/centrocustoRest.js"></script>
+
+<script src="formulario/fluxo-caixa/js/fluxo-caixaRest.js"></script>
+<script src="formulario/relExtratoCentroCusto/relFluxo.js"></script>
+
+<script type = "text/javascript"> 
+	window.onload = function(){      
+		ONG.relFlox.buscacusto();
+	}
+</script>
+</html>

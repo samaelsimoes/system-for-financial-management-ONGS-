@@ -1,0 +1,60 @@
+<meta charset="utf-8">
+<section> <!-- Campo pesquisar-->
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 custom-fontes">
+                <div class="form-group row">
+                    <div class="col-xs-6 col-md-7">
+                        
+                        <label for="buscar" class="col-2 col-form-label">Buscar:</label>
+
+                        <input class="form-control" type="text" id="consbeneass" placeholder="Buscar">
+                    </div>
+                    <div class="col-xs-6 col-md-3">
+                        <label class="col-2 col-form-label"> </label>
+                         <div class="col-10">
+
+                            <button type="button" class="btn btn-primary" onclick="consulassbene()">
+                					
+                				<span class="glyphicon glyphicon-search" aria-hidden="true">Pesquisar</span>
+                			</button>
+                        </div>
+                    </div>
+                </div>	
+            </div>
+        </div>
+    </div>
+</section>
+
+ <!-- BOTTAO  -->
+    <div class="container-table">
+        <div class="row">
+            <div class="col-12 col-md-12 pull-md-7 bd-content align-left">
+
+                <button type="button" class="btn btn-success active" onclick="chamacadsbeneass()">
+                
+                    <span class="glyphicon glyphicon-ok-circle" aria-hidden="true"> Cadastrar</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+ <!-- Relatatório -->
+    <div class="container-table ">
+        <div class="row"> 
+            <div class="col-12 col-md-12 pull-md-7 bd-content">
+                <div id = "resupesfis" class = "divResultado"></div>
+            </div>
+        </div>
+    </div>
+
+<!-- Chamada da minha funcao do relatorio -->
+
+<script src="formulario/pessoas/js/pesassbene.js"></script>
+    
+  <script type = "text/javascript"> 
+    window.onload = function(){
+        consulassbene();
+    }
+</script>
+
